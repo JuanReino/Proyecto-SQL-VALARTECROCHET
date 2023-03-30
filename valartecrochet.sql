@@ -1,7 +1,7 @@
 CREATE schema valartecrochet_text;
 USE valartecrochet_text;
 
-
+SELECT * FROM clientes;
 CREATE TABLE clientes (
 id_cli INT NOT NULL,
 doc_cli INT NOT NULL,
@@ -10,6 +10,9 @@ dir_cli VARCHAR(100) NOT NULL,
 tel_cli VARCHAR(50) NOT NULL,
 PRIMARY KEY(id_cli)
 );
+
+SELECT * FROM proveedor;
+DROP TABLE proveedor;
 CREATE TABLE proveedor (
 id_pro INT NOT NULL,
 doc_pro INT NOT NULL,
@@ -18,6 +21,8 @@ dir_pro VARCHAR(100) NOT NULL,
 tel_pro VARCHAR(50) NOT NULL,
 PRIMARY KEY (id_pro)
 );
+SELECT * FROM articulo;
+DROP TABLE articulo;
 CREATE TABLE articulo (
 id_art INT NOT NULL,
 nom_art VARCHAR(50) NOT NULL,
