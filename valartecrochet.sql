@@ -101,3 +101,27 @@ RETURN(
 	SELECT CONCAT(nombre_cli, ',', documento_cli));
 SELECT NOMBRES_DOCUMENTO(nom_cli, doc_cli)
 FROM clientes
+
+### PRUEBA SP 
+
+
+#####  PRIMER SP PARA EL ORDENAMIENTO DE UNA TABLA 
+DROP PROCEDURE ordenamiento_valor;
+DELIMITER $$
+CREATE PROCEDURE ordenamiento_valor (IN campo_ordenar VARCHAR(20), IN orden BOOLEAN)
+-- ORDEN = 1 -> ASC 
+-- ORDEN = 0 -> DESC 
+BEGIN 
+	IF campo_ordenar <> "" AND orden=1 THEN 
+		SET @ordenar = CONCAT("ORDER BY ", campo_ordenar);
+	ELSEIF campo_ordenar <> "" AND orden=0 THEN
+		SET @ordenar = CONCAT("ORDER BY ", campo_ordenar, 'DESC');
+	ELSE 
+		SET @ordenar = " ";
+	END IF;
+END $$
+DELIMITER ;
+CALL ordenamiento_valor("val_art", 1);
+SELECT * FROM articulo;
+
+
