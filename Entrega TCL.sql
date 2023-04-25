@@ -1,0 +1,13 @@
+#### ENTREGABLE MODIFICACIONES POR TRANSACCIONES 
+USE valarte_text;
+SELECT * FROM proveedor;
+SELECT @@autocommit;
+SET AUTOCOMMIT=0;
+
+START TRANSACTION; 
+DELETE FROM proveedor
+WHERE id_pro=2;
+SELECT * FROM proveedor;
+ROLLBACK;
+
+SELECT * FROM proveedor;
